@@ -14,7 +14,7 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: user@localhost
+      PGADMIN_DEFAULT_EMAIL: user@local.dev
       PGADMIN_DEFAULT_PASSWORD: postgres
     ports:
       - "8080:80"
