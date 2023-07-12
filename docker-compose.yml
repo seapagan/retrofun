@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  admin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: seapagan@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "8080:80"
+    volumes:
+      - admin-data:/var/lib/pgadmin
+volumes:
+  db-data:
+  admin-data:
