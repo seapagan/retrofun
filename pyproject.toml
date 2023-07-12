@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "retrofun"
+version = "0.1.0"
+description = "Code From 'SQLAlchemy 2 in Practice' by Miguel Grinberg"
+authors = ["Grant Ramsay <seapagan@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sqlalchemy = "^2.0.18"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
