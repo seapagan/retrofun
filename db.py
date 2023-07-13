@@ -1,3 +1,4 @@
+"""Declare the database engine and session.""" ""
 import os
 
 from dotenv import load_dotenv
@@ -6,6 +7,11 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 
 class Model(DeclarativeBase):
+    """Define the base model.
+
+    All others will inherit from this.
+    """
+
     metadata = MetaData(
         naming_convention={
             "ix": "ix_%(column_0_label)s",

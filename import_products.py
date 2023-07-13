@@ -1,3 +1,4 @@
+"""Simple script to import products from a CSV file.""" ""
 import csv
 
 from db import Model, Session, engine
@@ -5,19 +6,20 @@ from models import Manufacturer, Product
 
 
 def main():
+    """Main entry point for the script."""
     Model.metadata.drop_all(engine)  # warning: this deletes all data!
     Model.metadata.create_all(engine)
 
     with Session() as session:
         with session.begin():
-            with open('products.csv') as f:
+            with open("products.csv") as f:
                 reader = csv.DictReader(f)
                 all_manufacturers = {}
 
                 for row in reader:
-                    row['year'] = int(row['year'])
+                    row["year"] = int(row["year"])
 
-                    manufacturer = row.pop('manufacturer')
+                    manufacturer = row.pop("manufacturer")
                     p = Product(**row)
 
                     if manufacturer not in all_manufacturers:
@@ -27,5 +29,5 @@ def main():
                     all_manufacturers[manufacturer].products.append(p)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
